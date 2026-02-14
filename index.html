@@ -1,0 +1,55 @@
+<!-- index.html -->
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>テスト</title>
+
+  <!-- model-viewer を CDN から読み込む（ES module） -->
+  <script type="module"
+    src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+  <style>
+      html, body {
+      height: 100%;
+      margin: 0;
+      background: #000; /* ページ全体も黒に */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    model-viewer {
+      width: 80vw;
+      height: 60vh;
+      background-color: #000; /* ← 背景を黒に */
+    }
+  </style>
+</head>
+<body>
+
+  <!--
+    - src: GLTF/GLBのパス（例: model.gltf / model.glb / http://...）
+    - camera-controls: ユーザが回転・ズームできる
+    - exposure, shadow-intensity 等は省いて最小限に
+  -->
+  <model-viewer
+    src="model.glb"
+    ios-src="model.usdz"
+    alt="Sample 3D model"
+    camera-controls
+    auto-rotate
+    ar
+  ></model-viewer>
+
+  <!-- 簡単な使い方のメモ（画面内メモ） -->
+  <!--
+    ローカルで試す手順:
+    1. この index.html と model.gltf を同じフォルダに置く
+    2. ターミナルでそのフォルダに移動して:
+       python3 -m http.server 8000
+    3. ブラウザで http://localhost:8000 を開く
+  -->
+
+</body>
+</html>
